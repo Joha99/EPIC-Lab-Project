@@ -10,7 +10,7 @@ def main():
     os.chdir(raw_data_path)
     raw_data_files = glob.glob('*.csv')
 
-    window_size = int(sys.argv[1])
+    window_size = 30
 
     feature_extracted_path = '/Users/johakim/Desktop/EPIC-Lab-Project/Feature-Extracted/'
     extension = '.csv'
