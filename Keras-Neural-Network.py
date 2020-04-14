@@ -24,10 +24,11 @@ print("Input headers: {}\n".format(list(X.columns.values)))
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # create the Sequential model that allows buildup layer by layer
-num_nodes = 100
-num_layers = 2
+num_nodes = 30
+num_layers = 3
 model = Sequential()
 model.add(Dense(num_nodes, activation='relu', input_shape=(X_train.shape[1],)))
+model.add(Dense(num_nodes, activation='relu'))
 model.add(Dense(num_nodes, activation='relu'))
 model.add(Dense(1))
 
@@ -47,9 +48,10 @@ loss_values = history.history['loss']
 val_loss_values = history.history['val_loss']
 plt.plot(loss_values,'bo',label='training loss')
 plt.plot(val_loss_values,'r',label='val training loss')
-plt.ylabel('loss')
-plt.xlabel('epoch')
-plt.legend(['training loss', 'validation training loss'], loc='upper left')
+plt.ylabel('Loss (MSE)')
+plt.xlabel('Epoch')
+plt.title('Learning Curve')
+plt.legend(['Training Loss', 'Validation Training Loss'], loc='upper left')
 plt.show()
 
 # predict gait phase
