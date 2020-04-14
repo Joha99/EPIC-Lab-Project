@@ -49,7 +49,7 @@ plt.plot(loss_values,'bo',label='training loss')
 plt.plot(val_loss_values,'r',label='val training loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
-plt.legend(['train', 'test'], loc='upper left')
+plt.legend(['training loss', 'validation training loss'], loc='upper left')
 plt.show()
 
 # predict gait phase
