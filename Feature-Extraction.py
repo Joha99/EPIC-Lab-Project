@@ -17,18 +17,18 @@ def main():
 
     for file in raw_data_files:
         raw_data = pd.read_csv(file)
-        print('Raw data file: {}\n'.format(file), '-'*60)
-        print('Raw data df shape: {}\n'.format(raw_data.shape), '-' * 60)
+        # print('Raw data file: {}\n'.format(file), '-'*60)
+        # print('Raw data df shape: {}\n'.format(raw_data.shape), '-' * 60)
 
         # split raw data into sensor data and labels
         sensor_data = raw_data.iloc[:, :-2]
         labels = raw_data.iloc[:, -2:]
-        print('Sensor data df columns:\n{}\n'.format(sensor_data.columns), '-'*60)
-        print('Label df columns:\n{}\n'.format(labels.columns), '-'*60)
+        # print('Sensor data df columns:\n{}\n'.format(sensor_data.columns), '-'*60)
+        # print('Label df columns:\n{}\n'.format(labels.columns), '-'*60)
 
         # feature extraction
         feature_extracted_df = feature_extract(sensor_data, labels, window_size)
-        print('Feature extracted df:\n{}\n'.format(feature_extracted_df), '-'*60)
+        # print('Feature extracted df:\n{}\n'.format(feature_extracted_df), '-'*60)
 
         # save feature extracted dataframe
         output_file_path = feature_extracted_path + os.path.splitext(file)[0] + extension
